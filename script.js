@@ -21,6 +21,13 @@ const people = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
 
+const boulevards = ["Boulevard Auguste-Blanqui", "Boulevard Barbès", "Boulevard Beaumarchais", "Boulevard de l'Amiral-Bruix", "Boulevard Mortier", "Boulevard Poniatowski",
+    "Boulevard Soult", "Boulevard des Capucines", "Boulevard de la Chapelle", "Boulevard de Clichy", "Boulevard du Crime", "Boulevard du Général-d'Armée-Jean-Simon",
+    "Boulevard Haussmann", "Boulevard de l'Hôpital", "Boulevard des Italiens", "Boulevard Lefebvre", "Boulevard de la Madeleine", "Boulevard de Magenta", "Boulevard Malesherbes",
+    "Boulevard Marguerite-de-Rochechouart", "Boulevard Montmartre", "Boulevard du Montparnasse", "Boulevard Raspail", "Boulevard Richard-Lenoir", "Boulevard Saint-Germain",
+    "Boulevard Saint-Michel", "Boulevard de Sébastopol", "Boulevard de Strasbourg", "Boulevard du Temple", "Boulevard Voltaire", "Boulevard de la Zone"
+];
+
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const fifteen = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
@@ -38,13 +45,14 @@ const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
 const totalYears = inventors.reduce((total, inventor) => {
     return total + (inventor.passed - inventor.year);
 }, 0);
-console.log(totalYears);
 
 // 5. Sort the inventors by years lived
+const sortByAgeIncreasing = inventors.sort((a, b) => (a.passed - a.year) > (b.passed - b.year) ? 1 : -1);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+const deBoulevards = boulevards.filter(boulevard => boulevard.includes("de"));
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
